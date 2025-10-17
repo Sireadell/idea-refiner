@@ -3,9 +3,9 @@ from fireworks.client import Fireworks
 import os
 from dotenv import load_dotenv
 
-# ----------------------
+# 
 # Load .env properly
-# ----------------------
+# 
 env_path = os.path.join(os.path.dirname(__file__), ".env")
 
 if not os.path.exists(env_path):
@@ -13,11 +13,11 @@ if not os.path.exists(env_path):
 
 # Force load .env and override any existing env variables
 loaded = load_dotenv(dotenv_path=env_path, override=True)
-print(f"Dotenv loaded: {loaded}")
+
 
 # Debug: print FIREWORKS_API_KEY to confirm it's loaded
 api_key_debug = os.getenv("FIREWORKS_API_KEY")
-print(f"Loaded FIREWORKS_API_KEY: {api_key_debug}")
+
 
 if not api_key_debug:
     raise ValueError("FIREWORKS_API_KEY not found in environment variables after loading .env.")
